@@ -41,6 +41,15 @@ public class Arrays_matrizes_collections {
             }
         }
         
+        resposta += "\n\nDiagonal Principal = ";
+        col = 0;
+        
+        for (int[] m : mat) {
+            resposta += " " + m[col++];
+        }
+        
+        JTextArea saida = new JTextArea(resposta);
+        JOptionPane.showMessageDialog(null, saida);
         System.out.println(resposta);
     }
 }
