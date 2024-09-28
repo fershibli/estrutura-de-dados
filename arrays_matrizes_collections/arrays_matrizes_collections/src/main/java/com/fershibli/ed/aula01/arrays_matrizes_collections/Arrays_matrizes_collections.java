@@ -32,9 +32,13 @@ public class Arrays_matrizes_collections {
         }
         
         resposta += "\nLinhas";
+        for (int coluna = 0; coluna < mat[0].length; coluna++) {
+            resposta += "\t-";
+        }
+        
         lin = 0;
         for (int[] m  : mat) {
-            resposta += "\n" + lin++;
+            resposta += "\n" + lin++ + "   |";
             for (int coluna = 0; coluna < m.length; coluna++) {
                 m[coluna] = (int) (Math.random() * 10);
                 resposta += "\t" + m[coluna];
@@ -49,7 +53,7 @@ public class Arrays_matrizes_collections {
         }
         
         JTextArea saida = new JTextArea(resposta);
-        JOptionPane.showMessageDialog(null, saida);
         System.out.println(resposta);
+        JOptionPane.showMessageDialog(null, saida);
     }
 }
