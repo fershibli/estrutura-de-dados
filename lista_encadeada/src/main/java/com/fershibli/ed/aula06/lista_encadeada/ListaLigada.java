@@ -46,7 +46,7 @@ public class ListaLigada {
     }
     
     protected void adicionarNoMeio(int n, int posicao) {
-        if (posicao > 0 && posicao <= lista.size()) {
+        if (posicao >= 0 && posicao <= lista.size()) {
             
             No no = new No(n, null);
             if (posicao ==0) {
