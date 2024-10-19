@@ -27,10 +27,6 @@ public class ListaLigada {
         }
     }
     
-    protected Object Remover() {
-        return lista.pop();
-    }
-    
     protected boolean ehVazia() {
         return lista.isEmpty();
     }
@@ -64,5 +60,26 @@ public class ListaLigada {
         } else {
             System.out.println("Posição inválida");
         }
+    }
+
+    protected int tamanho(){
+        return lista.size();
+    }
+
+    protected int buscar(int n){
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNum() == n) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    protected No removerPrimeiro() {
+        return lista.removeFirst();
+    }
+
+    protected No removerUltimo() {
+        return lista.removeLast();
     }
 }

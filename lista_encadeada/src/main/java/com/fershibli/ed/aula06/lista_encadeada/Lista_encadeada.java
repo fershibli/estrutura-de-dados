@@ -13,6 +13,8 @@ import java.util.LinkedList;
 public class Lista_encadeada {
 
     public static void main(String[] args) {
+        //--- LinkedList ---//
+        System.out.println("<< LinkedList: Classe do Java >>");
         LinkedList<String> lista = new LinkedList<String>();
         lista.add("elemento1");
         lista.add("elemento2");
@@ -43,6 +45,47 @@ public class Lista_encadeada {
         for (String elemento : lista) {
             System.out.println(elemento);
         }
+
+        //--- ListaLigada ---//
+
+        System.out.println("<< ListaLigada: Classe Feita em Aula >>");
+
+        ListaLigada listaLigada = new ListaLigada();
+
+        listaLigada.adicionar(1);
+        listaLigada.adicionar(2);
+        listaLigada.adicionar(3);
+        listaLigada.adicionar(4);
+
+        System.out.println("== Listando Elementos da Lista Ligada ==");
+        listaLigada.listarLista();
+
+        listaLigada.adicionarNoMeio(5, 2);
+
+        System.out.println("== Listando Elementos da Lista Ligada ==");
+        listaLigada.listarLista();
+
+        System.out.println("== A Lista Ligada está vazia? ==");
+        System.out.println(listaLigada.ehVazia());
+
+        System.out.println("== Tamanho da Lista Ligada ==");
+        System.out.println(listaLigada.tamanho());
+
+        System.out.println("== Buscando Elemento na Lista Ligada ==");
+        int index = listaLigada.buscar(3);
+        if (index > -1) {
+            System.out.println("Elemento encontrado na posição: " + index);
+        } else {
+            System.out.println("Elemento não encontrado");
+        }
+
+        System.out.println("== Removendo Primeiro Elemento da Lista Ligada ==");
+        listaLigada.removerPrimeiro();
+        listaLigada.listarLista();
+
+        System.out.println("== Removendo Último Elemento da Lista Ligada ==");
+        listaLigada.removerUltimo();
+        listaLigada.listarLista();
 
     }
 }
