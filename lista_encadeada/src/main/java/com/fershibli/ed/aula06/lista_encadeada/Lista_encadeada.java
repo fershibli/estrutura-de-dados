@@ -14,7 +14,7 @@ public class Lista_encadeada {
 
     public static void main(String[] args) {
         //--- LinkedList ---//
-        System.out.println("<< LinkedList: Classe do Java >>");
+        System.out.println("\n\n<< LinkedList: Classe do Java >>");
         LinkedList<String> lista = new LinkedList<String>();
         lista.add("elemento1");
         lista.add("elemento2");
@@ -48,7 +48,7 @@ public class Lista_encadeada {
 
         //--- ListaLigada ---//
 
-        System.out.println("<< ListaLigada: Classe Feita em Aula >>");
+        System.out.println("\n\n<< ListaLigada: Classe Feita em Aula >>");
 
         ListaLigada listaLigada = new ListaLigada();
 
