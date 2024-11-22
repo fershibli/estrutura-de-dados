@@ -19,7 +19,15 @@ class Dicionario {
     }
  
     public void addPalavra(String palavra, String definicao) {
+        if (this.contemPalavra(palavra)) {
+            System.out.println("Palavra já existe no dicionário.");
+            return;
+        }
         palavras.put(palavra, definicao);
+    }
+
+    public boolean contemPalavra(String palavra) {
+        return palavras.containsKey(palavra);
     }
  
     public String getDefinicao(String palavra) {
@@ -41,4 +49,16 @@ class Dicionario {
     Contar Palavras:
         Implemente um método contaPalavras() que retorna o número total de palavras no dicionário.
     */
+
+    public void removePalavra(String palavra) {
+        palavras.remove(palavra);
+    }
+
+    public void atualizaDefinicao(String palavra, String novaDefinicao) {
+        palavras.put(palavra, novaDefinicao);
+    }
+
+    public int contaPalavras() {
+        return palavras.size();
+    }
 }
