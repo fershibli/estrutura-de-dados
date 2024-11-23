@@ -20,7 +20,7 @@ class Dicionario {
  
     public void addPalavra(String palavra, String definicao) {
         if (this.contemPalavra(palavra)) {
-            System.out.println("Palavra já existe no dicionário.");
+            System.out.println("Palavra já existe no dicionário, impossível adicionar.");
             return;
         }
         palavras.put(palavra, definicao);
@@ -55,7 +55,12 @@ class Dicionario {
     }
 
     public void atualizaDefinicao(String palavra, String novaDefinicao) {
-        palavras.put(palavra, novaDefinicao);
+        if (this.contemPalavra(palavra) == false){
+            System.out.println("Palavra não existe no dicionário, impossível atualizar.");
+            return;
+        }
+        this.removePalavra(palavra);
+        this.addPalavra(palavra, novaDefinicao);
     }
 
     public int contaPalavras() {
