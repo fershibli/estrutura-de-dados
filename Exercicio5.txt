@@ -1,0 +1,153 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package exercicioarvore;
+
+/**
+ *
+ * @author Alunos
+ */
+public class No {
+    No esquerdo;
+    int valor;
+    No direito;
+    
+    public No(int valor) {
+        this.valor = valor;
+        esquerdo = direito = null;
+    }
+    
+    public void inserir(int valor) {
+        if (valor<this.valor) {
+            if (esquerdo == null) {
+                esquerdo = new No(valor);
+            } else {
+                esquerdo.inserir(valor);
+            }
+        } else if(valor > this.valor) {
+            if (direito == null) {
+                direito = new No(valor);
+            } else {
+                direito.inserir(valor);
+            }
+        }
+    }
+}
+
+
+package exercicioarvore;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author Alunos
+ */
+public class Arvore {
+    private No raiz;
+    
+    public Arvore() {
+        this.raiz = null;
+    }
+    
+    // insere um novo nó na árvore de pesquisa binária
+    public void inserirNo(int valor) {
+        if (raiz == null) {
+            raiz = new No(valor);
+        } else {
+            raiz.inserir(valor);
+        }
+    }
+    
+    // inicia percurso na pré-ordem
+    public void preordemPercurso() {
+        preordemNavegador(raiz);
+    }
+    
+    // método recursivo para realizar percurso na pré-ordem
+    private void preordemNavegador(No no) {
+        if (no == null) {
+            return;
+        }
+        System.out.printf("%d ", no.valor);
+        preordemNavegador(no.esquerdo);
+        preordemNavegador(no.direito);
+    }
+    
+    // inicia percurso na ordem
+    public void emordemPercurso(){
+        emordemNavegador(raiz);
+    }
+    
+    // método recursivo para realizar percurso na ordem
+    private void emordemNavegador(No no) {
+        if (no == null) {
+            return;
+        }
+        emordemNavegador(no.esquerdo);
+        System.out.printf("%d ", no.valor);
+        emordemNavegador(no.direito);
+    }
+    
+    // inicia percurso na pós-ordem
+    public void posordemPercurso(){
+        posordemNavegador(raiz);
+    }
+    
+    // método recursivo para realizar percuso na pós-ordem
+    private void posordemNavegador(No no) {
+        if (no == null) {
+            return;
+        }
+        posordemNavegador(no.esquerdo);
+        posordemNavegador(no.direito);
+        System.out.printf("%d ", no.valor);
+
+    }
+    
+}
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package exercicioarvore;
+
+/**
+ *
+ * @author Alunos
+ */
+public class ExercicioArvore {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Arvore arvore = new Arvore();
+
+        int valores[] = {120, 44, 4, 63, 48, 15, 85, 1, 99, 18, 20, 7, 70, 20, 5, 9, 86};
+
+        System.out.println("\n\nValores inseridos: ");
+        for (int i = 0;  i < valores.length; i++) {
+            int valor = valores[i];
+            System.out.print(valor + " ");
+            arvore.inserirNo(valor);
+        }
+        System.out.println("\n\n\nPercurso na pré-ordem");
+        arvore.preordemPercurso(); 
+        System.out.println("\n\nPercurso na ordem");
+        arvore.emordemPercurso();
+        System.out.println("\n\nPercurso na pós-ordem");
+        arvore.posordemPercurso();
+        
+        System.out.print("\n\n");
+
+    }
+    
+}
