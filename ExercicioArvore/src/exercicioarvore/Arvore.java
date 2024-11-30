@@ -70,5 +70,34 @@ public class Arvore {
         System.out.printf("%d ", no.valor);
 
     }
-    
+
+    // inicia percurso de remoção de nó
+    public void removerNoPercurso(int valor) {
+        raiz = removerNo(raiz, valor);
+    }
+
+    // método recursivo para remover nó
+    private No removerNo(No no, int valor) {
+        // se a árvore estiver vazia
+        if (no == null) {
+            return no;
+        }
+        // navega pela árvore
+        if (valor < no.valor) {
+            no.esquerdo = removerNo(no.esquerdo, valor);
+        } else if (valor > no.valor) {
+            no.direito = removerNo(no.direito, valor);
+        } else {
+            // se o nó a ser removido tiver um ou nenhum filho
+            if (no.esquerdo == null) {
+                return no.direito;
+            } else if (no.direito == null) {
+                return no.esquerdo;
+            }
+            // se o nó a ser removido tiver dois filhos
+            no.valor = minValor(no.direito);
+            no.direito = removerNo(no.direito, no.valor);
+        }
+        return no;
+    }
 }
