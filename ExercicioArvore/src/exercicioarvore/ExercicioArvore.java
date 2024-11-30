@@ -32,6 +32,7 @@ public class ExercicioArvore {
         System.out.println("\n\nPercurso na pós-ordem");
         arvore.posordemPercurso();
         
+        System.out.print("\n\n");
 
     }
     
