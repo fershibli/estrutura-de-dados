@@ -1,0 +1,6 @@
+Exercício 1
+    A complexidade do algoritmo é linear (n¹), pois os dois loops "for" são sequenciais e não aninhados.
+
+Exercício 2
+    A complexidade do pior tempo possível é quadrática (n²), pois os dois loops "for" estão aninhados. 
+    A variável swapped vigia se o número do primeiro loop foi trocado, caso não tenha sido, isso significa que o array já está ordenado, permitindo que no melhor cenário a complexidade seja muito próxima da linear (n¹).
